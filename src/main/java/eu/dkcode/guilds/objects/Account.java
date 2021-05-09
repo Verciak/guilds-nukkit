@@ -42,15 +42,15 @@ public class Account extends AccountHandler {
 
 
     private void insert(){
-        DatabaseHelper.guildCollection.insertOne(Document.parse(new Gson().toJson(this)));
+        DatabaseHelper.accountCollection.insertOne(Document.parse(new Gson().toJson(this)));
     }
 
     public void synchronize(){
-        DatabaseHelper.guildCollection.findOneAndUpdate(new Document("uuid", uuid.toString()), new Document("$set", Document.parse(new Gson().toJson(this))));
+        DatabaseHelper.accountCollection.findOneAndUpdate(new Document("uuid", uuid.toString()), new Document("$set", Document.parse(new Gson().toJson(this))));
     }
 
     public void delete() {
-        DatabaseHelper.guildCollection.findOneAndDelete(new Document("uuid", uuid.toString()));
+        DatabaseHelper.accountCollection.findOneAndDelete(new Document("uuid", uuid.toString()));
     }
 
     public void statsIncrement(int points, int kills, int deaths) {

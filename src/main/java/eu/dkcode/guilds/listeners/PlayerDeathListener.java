@@ -5,12 +5,15 @@ import eu.dkcode.guilds.objects.Account;
 import eu.dkcode.guilds.objects.DeathAction;
 import eu.dkcode.guilds.objects.Guild;
 import lombok.AllArgsConstructor;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
 
 import java.util.Date;
+
+import static eu.dkcode.guilds.helpers.ColorHelper.colored;
 
 /**
  * @Author: Kacper 'DeeKaPPy' Horbacz
@@ -31,12 +34,12 @@ public class PlayerDeathListener implements Listener {
     public void onPlayerDeath(PlayerDeathEvent event){
         final Player player = event.getEntity(), killer = event.getEntity().getKiller();
         if(killer == null) return;
-        final Account pAccount = Account.get(player.getUniqueId()), kAccount = Account.get(player.getUniqueId());
+        final Account pAccount = Account.get(player.getUniqueId()), kAccount = Account.get(killer.getUniqueId());
         final Guild pGuild = Guild.get(player.getName()), kGuild = Guild.get(killer.getName());
         if(pAccount == null || kAccount == null) return;
 
         int accountPointsAdd = (int) (30 + (pAccount.getPoints() - kAccount.getPoints()) * 0.2),
-                accountPointsTake = (accountPointsAdd / 6) * 2;
+                accountPointsTake = -((accountPointsAdd / 6) * 2);
 
         final DeathAction deathAction = new DeathAction(
                 killer.getUniqueId(),
@@ -63,6 +66,10 @@ public class PlayerDeathListener implements Listener {
 
         if(pGuild != null) pGuild.statIncrement(guildPointsTake, 0, 1);
         if(kGuild != null) kGuild.statIncrement(guildPointsAdd, 1, 0);
+
+        Bukkit.getOnlinePlayers().forEach(target -> {
+            target.sendMessage(colored("&fGracz "+(pGuild == null ? "" : "&8[&4"+pGuild.getTag()+"&8]")+" &4" + player.getName() + " &8(&c"+accountPointsTake+"&8) &fzostal zabity przez "+(kGuild == null ? "" : "&8[&4"+kGuild.getTag()+"&8]")+" &4" + killer.getName() +" &8(&a+"+accountPointsAdd+"&8)"));
+        });
     }
 
 }

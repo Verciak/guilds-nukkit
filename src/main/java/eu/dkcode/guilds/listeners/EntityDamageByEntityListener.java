@@ -26,7 +26,7 @@ public class EntityDamageByEntityListener implements Listener {
 
     @EventHandler(ignoreCancelled = true)
     public void onEntityDamageByEntity(EntityDamageByEntityEvent event){
-        final Entity entity = event.getEntity(), damageEntity = event.getEntity();
+        final Entity entity = event.getEntity(), damageEntity = event.getDamager();
         if(!(entity instanceof Player) || !(damageEntity instanceof Player)) return;
         final Player player = (Player) entity, damagePlayer = (Player) damageEntity;
         final Guild pGuild = Guild.get(player.getName()), dGuild = Guild.get(damagePlayer.getName());

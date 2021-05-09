@@ -383,11 +383,11 @@ public class GuildCommand implements CommandExecutor {
                 if(args.length == 2 && (args[1].equalsIgnoreCase("sojusz")
                         || args[1].equalsIgnoreCase("s") || args[1].equalsIgnoreCase("ally") || args[1].equalsIgnoreCase("a"))){
                     guild.setAllyPvp(!guild.getAllyPvp());
-                    GuildHelper.getGuildOnlinePlayers(guild).forEach(target -> player.sendMessage("&cPVP w sojuszu zostalo: &" + (guild.getAllyPvp() ? "aWlaczone" : "&4Wylaczone")));
+                    GuildHelper.getGuildOnlinePlayers(guild).forEach(target -> player.sendMessage(colored("&cPVP w sojuszu zostalo: &" + (guild.getAllyPvp() ? "aWlaczone" : "&4Wylaczone"))));
                     return true;
                 }
                 guild.setGuildPvp(!guild.getGuildPvp());
-                GuildHelper.getGuildOnlinePlayers(guild).forEach(target -> player.sendMessage("&cPVP w gildii zostalo: &" + (guild.getGuildPvp() ? "aWlaczone" : "&4Wylaczone")));
+                GuildHelper.getGuildOnlinePlayers(guild).forEach(target -> player.sendMessage(colored("&cPVP w gildii zostalo: &" + (guild.getGuildPvp() ? "aWlaczone" : "&4Wylaczone"))));
                 return true;
             }
             case "info":{
@@ -406,7 +406,7 @@ public class GuildCommand implements CommandExecutor {
     }
 
     public boolean guildInfo(CommandSender sender, Guild guild){
-        sender.sendMessage(colored(guild.getTag()));
+        sender.sendMessage(colored(guild.getTag() + guild.getPoints()));
         return true;
     }
 

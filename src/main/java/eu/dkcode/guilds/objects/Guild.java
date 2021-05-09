@@ -81,7 +81,10 @@ public class Guild extends GuildHandler {
 
         members = Sets.newConcurrentHashSet();
         members.add(this.owner);
+
+        membersInvites = Sets.newConcurrentHashSet();
         allies = Sets.newConcurrentHashSet();
+        alliesInvites = Sets.newConcurrentHashSet();
 
         guildPvp = false;
         allyPvp = false;
