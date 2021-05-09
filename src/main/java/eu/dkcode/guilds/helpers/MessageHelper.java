@@ -18,8 +18,8 @@ import static eu.dkcode.guilds.helpers.ColorHelper.colored;
 
 public class MessageHelper {
 
-    public static void sendActionbar(Player p, String message) {
-        ((CraftPlayer)p).getHandle().playerConnection.sendPacket(
+    public static void sendActionbar(Player player, String message) {
+        ((CraftPlayer)player).getHandle().playerConnection.sendPacket(
                 new PacketPlayOutChat(
                         IChatBaseComponent.ChatSerializer.a(
                                 "{\"text\": \"" + ChatColor.translateAlternateColorCodes('&', message) + "\"}"

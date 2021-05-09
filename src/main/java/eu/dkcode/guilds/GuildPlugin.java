@@ -4,6 +4,7 @@ import eu.dkcode.guilds.commands.GuildCommand;
 import eu.dkcode.guilds.helpers.DatabaseHelper;
 import eu.dkcode.guilds.listeners.*;
 import eu.dkcode.guilds.objects.configs.Config;
+import eu.dkcode.guilds.runnable.ActionBarRunnable;
 import eu.dkcode.guilds.runnable.DatabaseRunnable;
 import eu.dkcode.guilds.runnable.GuildExpireRunnable;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -33,12 +34,16 @@ public class GuildPlugin extends JavaPlugin {
 
         new DatabaseRunnable(this).register();
         new GuildExpireRunnable(this).register();
+        new ActionBarRunnable(this).register();
 
         new BlockBreakPlaceListener(this).register();
         new PlayerBucketEmptyFillListener(this).register();
         new PlayerMoveListener(this).register();
         new EntityExplodeListener(this).register();
         new BlockPistonExtendRetractListener(this).register();
+        new TeleportCancelListener(this).register();
+        new EntityDamageByEntityListener(this).register();
+        new PlayerDeathListener(this).register();
 
         new GuildCommand("guild",this);
     }

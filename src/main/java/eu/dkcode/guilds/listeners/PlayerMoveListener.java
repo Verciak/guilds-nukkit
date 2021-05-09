@@ -32,11 +32,11 @@ public class PlayerMoveListener implements Listener {
         if(guildTo == guildFrom) return;
         String messageColor;
         if(guildTo == null){
-            messageColor = guild == null ? "4" : guild.getAllies().contains(guildFrom.getTag()) ? "9" : guild.getTag().equals(guildFrom.getTag()) ? "2" : "4";
+            messageColor = guild == null ? "4" : guild.getAllies().contains(guildFrom.getUuid()) ? "9" : guild.getUuid().equals(guildFrom.getUuid()) ? "2" : "4";
             sendTitle(player,"&"+messageColor+"Gildie","&"+messageColor+"Opuscicles teren gildii &8[&"+messageColor+guildFrom.getTag()+"&8]");
             return;
         }
-        messageColor = guild == null ? "4" : guild.getAllies().contains(guildTo.getTag()) ? "9" : guild.getTag().equals(guildTo.getTag()) ? "2" : "4";
+        messageColor = guild == null ? "4" : guild.getAllies().contains(guildTo.getUuid()) ? "9" : guild.getUuid().equals(guildTo.getUuid()) ? "2" : "4";
         sendTitle(player,"&"+messageColor+"Gildie","&"+messageColor+"Wkroczyles na teren gildii &8[&"+messageColor+guildTo.getTag()+"&8]");
     }
 }

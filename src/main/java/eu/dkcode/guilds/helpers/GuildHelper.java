@@ -1,9 +1,17 @@
 package eu.dkcode.guilds.helpers;
 
+import com.google.common.collect.Sets;
+import eu.dkcode.guilds.handlers.GuildHandler;
 import eu.dkcode.guilds.objects.Guild;
+import eu.dkcode.guilds.objects.configs.Config;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.entity.Player;
+
+import java.util.Collection;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * @Author: Kacper 'DeeKaPPy' Horbacz
@@ -40,7 +48,16 @@ public class GuildHelper {
 
         center.setY(center.getY()-1);
         Bukkit.getWorld("world").getBlockAt(center).setType(Material.AIR);
+    }
 
+    public static boolean isTooCloseToGuild(Location location){
+        return GuildHandler.getGuilds().stream().anyMatch(guild -> LocationHelper.getDistanceMin(location,guild.getCenterLocation()) < ((Config.getInstance().guildDefaultSize * 2) + 15));
+    }
+
+    public static Set<Player> getGuildOnlinePlayers(Guild guild){
+        return Bukkit.getOnlinePlayers().stream()
+                .filter(player -> guild.getMembers().contains(player.getName()))
+                .collect(Collectors.toSet());
     }
 
 }

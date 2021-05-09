@@ -27,10 +27,11 @@ public class RandomHelper {
     }
 
     public static String getRandomString(int length) {
-        String string = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvxyz";
-        StringBuilder code = new StringBuilder(length);
+        final String string = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvxyz";
+        final StringBuilder code = new StringBuilder(length);
         for (int i = 0; i < length; i++)
             code.append(string.charAt((int)(string.length() * Math.random())));
         return code.toString();
     }
+
 }

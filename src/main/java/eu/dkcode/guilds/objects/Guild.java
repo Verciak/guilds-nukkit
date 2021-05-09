@@ -58,7 +58,7 @@ public class Guild extends GuildHandler {
 
     private Integer guildSize;
     private final Integer centerX,centerY,centerZ;
-    private final Integer homeX,homeY,homeZ;
+    private Integer homeX,homeY,homeZ;
 
     public Guild(String tag, String name, Player owner){
         uuid = UUID.randomUUID();
@@ -127,6 +127,12 @@ public class Guild extends GuildHandler {
 
     public Location getHomeLocation(){
         return new Location(Bukkit.getWorld("world"),homeX,homeY,homeZ);
+    }
+
+    public void statIncrement(int points, int kills, int deaths){
+        setPoints(getPoints() + points);
+        setKills(getKills() + kills);
+        setDeaths(getDeaths() + deaths);
     }
 
 

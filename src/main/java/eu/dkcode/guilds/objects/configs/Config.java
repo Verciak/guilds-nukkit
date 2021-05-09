@@ -22,7 +22,13 @@ public class Config {
 
     public Integer guildDefaultLives;
     public Integer guildDefaultSize;
+    public Integer guildMaxSize;
     public Integer guildDefaultPoints;
+    public Integer guildMinimumDistance;
+    public Integer guildExtendPrice;
+    public Integer guildEnlargePrice;
+
+    public Double worldBorder;
 
 
 
@@ -31,8 +37,14 @@ public class Config {
         mongoDatabase = "guilds";
 
         guildDefaultLives = 3;
-        guildDefaultSize = 30;
+        guildDefaultSize = 20;
+        guildMaxSize = 40;
         guildDefaultPoints = 1000;
+        guildMinimumDistance = 80;
+        guildExtendPrice = 16;
+        guildEnlargePrice = 16;
+
+        worldBorder = 5000.0;
     }
 
     public static Config getInstance() {

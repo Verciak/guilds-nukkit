@@ -24,7 +24,6 @@ public class GuildExpireRunnable implements Runnable {
         GuildHandler.getGuilds().forEach(guild -> {
             if(guild.getExpireDate().getTime() > System.currentTimeMillis()) return;
             guild.delete("Brak oplaty!");
-            // todo: remove guild message
         });
     }
 }
