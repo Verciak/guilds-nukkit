@@ -130,10 +130,9 @@ public class Guild extends GuildHandler {
     }
 
     public void statIncrement(int points, int kills, int deaths){
-        setPoints(getPoints() + points);
-        setKills(getKills() + kills);
-        setDeaths(getDeaths() + deaths);
+        this.points = this.points + points;
+        this.kills = this.kills + kills;
+        this.deaths = this.deaths + deaths;
     }
-
 
 }
