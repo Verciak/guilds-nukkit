@@ -8,3 +8,5 @@ website: https://dkCode.eu
 commands:
   guild:
     aliases: [g]
+  player:
+    aliases: [gracz]

@@ -1,6 +1,7 @@
 package eu.dkcode.guilds;
 
 import eu.dkcode.guilds.commands.GuildCommand;
+import eu.dkcode.guilds.commands.PlayerCommand;
 import eu.dkcode.guilds.helpers.DatabaseHelper;
 import eu.dkcode.guilds.listeners.*;
 import eu.dkcode.guilds.objects.configs.Config;
@@ -32,10 +33,12 @@ public class GuildPlugin extends JavaPlugin {
         databaseHelper.connect();
         databaseHelper.load();
 
+        // runnable
         new DatabaseRunnable(this).register();
         new GuildExpireRunnable(this).register();
         new ActionBarRunnable(this).register();
 
+        // listeners
         new BlockBreakPlaceListener(this).register();
         new PlayerBucketEmptyFillListener(this).register();
         new PlayerMoveListener(this).register();
@@ -44,8 +47,11 @@ public class GuildPlugin extends JavaPlugin {
         new TeleportCancelListener(this).register();
         new EntityDamageByEntityListener(this).register();
         new PlayerDeathListener(this).register();
+        new PlayerJoinListener(this).register();
 
+        // commands
         new GuildCommand("guild",this);
+        new PlayerCommand("player", this);
     }
 
 }

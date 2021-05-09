@@ -390,8 +390,24 @@ public class GuildCommand implements CommandExecutor {
                 GuildHelper.getGuildOnlinePlayers(guild).forEach(target -> player.sendMessage("&cPVP w gildii zostalo: &" + (guild.getGuildPvp() ? "aWlaczone" : "&4Wylaczone")));
                 return true;
             }
+            case "info":{
+                if(args.length == 2){
+                    final Guild tGuild = Guild.getByTag(args[1]);
+                    return guildInfo(sender, tGuild);
+                }
+                if(guild == null){
+                    player.sendMessage(colored("&cNie posiadasz gildii!"));
+                    return true;
+                }
+                return guildInfo(sender,guild);
+            }
             default: return usage(sender);
         }
+    }
+
+    public boolean guildInfo(CommandSender sender, Guild guild){
+        sender.sendMessage(colored(guild.getTag()));
+        return true;
     }
 
     public boolean usage(CommandSender sender){
