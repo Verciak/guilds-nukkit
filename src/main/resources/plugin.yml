@@ -1,12 +1,5 @@
 name: guilds-1.0-SNAPSHOT
 version: 1.0-SNAPSHOT
-main: eu.dkcode.guilds.GuildPlugin
-
-author: DeeKaPPy
-website: https://dkCode.eu
-
-commands:
-  guild:
-    aliases: [g]
-  player:
-    aliases: [gracz]
+main: pl.vertty.nomenhc.GuildPlugin
+api: [1.0.8]
+author: HostFire

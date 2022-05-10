@@ -1,0 +1,187 @@
+{
+    "drops":{
+        "stone":{
+            "list":[
+                {
+                    "id": 49,
+                    "chance": 3.00,
+                    "name": "Obsydian",
+                    "item_id": 49,
+                    "from_id": 1,
+                    "amount": {"min": 1, "max": 6},
+                    "fortune": false,
+                    "exp": 8
+                },
+                {
+                    "id": 368,
+                    "chance": 1.50,
+                    "name": "Perla",
+                    "item_id": 368,
+                    "from_id": 1,
+                    "amount": {"min": 1, "max": 3},
+                    "fortune": true,
+                    "exp": 12
+                },
+                {
+                    "id": 264,
+                    "chance": 3.50,
+                    "name": "Diament",
+                    "item_id": 264,
+                    "from_id": 1,
+                    "amount": {"min": 1, "max": 3},
+                    "fortune": true,
+                    "exp": 12
+                },
+                {
+                    "id": 266,
+                    "chance": 3.00,
+                    "name": "Zloto",
+                    "item_id": 266,
+                    "from_id": 1,
+                    "amount": {"min": 1, "max": 3},
+                    "fortune": true,
+                    "exp": 12
+                },
+                {
+                    "id": 265,
+                    "chance": 5.30,
+                    "name": "Zelazo",
+                    "item_id": 265,
+                    "from_id": 1,
+                    "amount": {"min": 1, "max": 4},
+                    "fortune": true,
+                    "exp": 12
+                },
+                {
+                    "id": 388,
+                    "chance": 4.60,
+                    "name": "Emerald",
+                    "item_id": 388,
+                    "from_id": 1,
+                    "amount": {"min": 1, "max": 3},
+                    "fortune": true,
+                    "exp": 12
+                },
+                {
+                    "id": 263,
+                    "chance": 6.00,
+                    "name": "Wegiel",
+                    "item_id": 263,
+                    "from_id": 1,
+                    "amount": {"min": 1, "max": 6},
+                    "fortune": true,
+                    "exp": 12
+                },
+                {
+                    "id": 47,
+                    "chance": 4.80,
+                    "name": "Biblioteczka",
+                    "item_id": 47,
+                    "from_id": 1,
+                    "amount": {"min": 1, "max": 3},
+                    "fortune": false,
+                    "exp": 12
+                },
+                {
+                    "id": 46,
+                    "chance": 3.60,
+                    "name": "TNT",
+                    "item_id": 46,
+                    "from_id": 1,
+                    "amount": {"min": 1, "max": 4},
+                    "fortune": false,
+                    "exp": 12
+                },
+                {
+                    "id": 262,
+                    "chance": 5.00,
+                    "name": "Strzala",
+                    "item_id": 262,
+                    "from_id": 1,
+                    "amount": {"min": 1, "max": 4},
+                    "fortune": false,
+                    "exp": 12
+                },
+                {
+                    "id": 332,
+                    "chance": 5.00,
+                    "name": "Sniezka",
+                    "item_id": 332,
+                    "from_id": 1,
+                    "amount": {"min": 1, "max": 3},
+                    "fortune": true,
+                    "exp": 12
+                }
+
+
+            ]
+        },
+        "pandora":{
+            "list":[
+                {
+                    "id": 49,
+                    "chance": 6.3,
+                    "name": "Obsydian",
+                    "item_id": 49,
+                    "amount": {"min": 1, "max": 6},
+                    "enchants":[
+                        {"name": 1, "level": 5},
+                        {"name": 2, "level": 3},
+                        {"name": 3, "level": 3}
+                    ]
+                },
+                {
+                    "id": 368,
+                    "chance": 0.32,
+                    "name": "Perla",
+                    "item_id": 368,
+                    "amount": {"min": 1, "max": 2},
+                    "enchants":[]
+                }
+            ]
+        },
+        "case":{
+            "list":[
+                {
+                    "id": 49,
+                    "chance": 6.3,
+                    "name": "Obsydian",
+                    "item_id": 49,
+                    "amount": {"min": 1, "max": 6},
+                    "enchants":[
+                        {"name": 1, "level": 5},
+                        {"name": 2, "level": 3},
+                        {"name": 3, "level": 3}
+                    ]
+                },
+                {
+                    "id": 368,
+                    "chance": 0.32,
+                    "name": "Perla",
+                    "item_id": 368,
+                    "amount": {"min": 1, "max": 2},
+                    "enchants":[]
+                }
+            ]
+        },
+        "cx":{
+            "list":[
+                {
+                    "id": 322,
+                    "meta": 0,
+                    "name": "",
+                    "amount": 5,
+                    "enchants":[]
+                },
+                {
+                    "id": 322,
+                    "meta": 1,
+                    "name": "",
+                    "amount": 3,
+                    "enchants":[]
+                }
+            ]
+        }
+    }
+
+}
