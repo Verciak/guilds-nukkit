@@ -95,7 +95,7 @@ public class GuildCommand extends PlayerCommand {
                     return false;
                 }
                 if(!to_delete.containsKey(guild) || args.length == 1){
-                    to_delete.put(guild, RandomHelper.getRandomString(5));
+                    to_delete.put(guild, guild.getTag());
                     player.sendMessage(colored(Messages.getInstance().guild_delete_code.replace("{CODE}", to_delete.get(guild))));
                     return false;
                 }

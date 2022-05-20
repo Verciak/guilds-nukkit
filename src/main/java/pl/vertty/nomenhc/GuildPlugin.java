@@ -2,6 +2,7 @@ package pl.vertty.nomenhc;
 
 import cn.nukkit.Player;
 import cn.nukkit.Server;
+import cn.nukkit.blockentity.BlockEntity;
 import cn.nukkit.entity.Entity;
 import cn.nukkit.plugin.PluginBase;
 import net.dv8tion.jda.api.JDABuilder;
@@ -10,9 +11,15 @@ import pl.vertty.nomenhc.commands.Command;
 import pl.vertty.nomenhc.commands.CommandManager;
 import pl.vertty.nomenhc.commands.admin.*;
 import pl.vertty.nomenhc.commands.guilds.GuildCommand;
+import pl.vertty.nomenhc.commands.helper.ClearCommand;
 import pl.vertty.nomenhc.commands.user.DropCommand;
 import pl.vertty.nomenhc.commands.user.PlayerCommand;
 import pl.vertty.nomenhc.commands.user.RewardCommand;
+import pl.vertty.nomenhc.commands.user.TestCommand;
+import pl.vertty.nomenhc.entity.QueryThread;
+import pl.vertty.nomenhc.entity.blockentity.ChestTile;
+import pl.vertty.nomenhc.entity.blockentity.FixedHopperTile;
+import pl.vertty.nomenhc.entity.projectile.*;
 import pl.vertty.nomenhc.handlers.CombatManager;
 import pl.vertty.nomenhc.handlers.DropManager;
 import pl.vertty.nomenhc.helpers.DatabaseHelper;
@@ -38,6 +45,7 @@ public class GuildPlugin extends PluginBase {
 
 
     public static GuildPlugin plugin;
+    private static QueryThread query;
 
     public void onLoadDropConfig() {
         DropConfig.init(new File("./plugins/guilds"));
@@ -77,63 +85,76 @@ public class GuildPlugin extends PluginBase {
         final DatabaseHelper databaseHelper = new DatabaseHelper();
         databaseHelper.connect();
         databaseHelper.load();
-        DropManager.loadDrops();
-        for (Player p : Server.getInstance().getOnlinePlayers().values()) {
-            final Combat c = CombatManager.getCombat(p);
-            if (c == null) {
-                CombatManager.createCombat(p);
-            }
-        }
+//        DropManager.loadDrops();
+//        GuildPlugin.query = new QueryThread();
+//        for (Player p : Server.getInstance().getOnlinePlayers().values()) {
+//            final Combat c = CombatManager.getCombat(p);
+//            if (c == null) {
+//                CombatManager.createCombat(p);
+//            }
+//        }
         // runnable
         new DatabaseRunnable(this).register();
-        new GuildExpireRunnable(this).register();
-        new ActionBarRunnable(this).register();
-        new ScoreboardRunnable(this).register();
+//        new GuildExpireRunnable(this).register();
+//        new ActionBarRunnable(this).register();
+//        new ScoreboardRunnable(this).register();
 
         // listeners
-        this.getServer().getPluginManager().registerEvents(new ScoreboardListener(), this);
-        new DropListener(this).register();
-        new BlockBreakPlaceListener(this).register();
-        new CommandBlockListener(this).register();
-        new EntityDamageByEntityListener(this).register();
-        new EntityExplodeListener(this).register();
-        new InventoryOpenListener(this).register();
-        new PlayerBucketEmptyFillListener(this).register();
-        new PlayerDeathListener(this).register();
+//        this.getServer().getPluginManager().registerEvents(new ScoreboardListener(), this);
+//        new DropListener(this).register();
+//        new BlockBreakPlaceListener(this).register();
+//        new CommandBlockListener(this).register();
+//        new EntityDamageByEntityListener(this).register();
+//        new EntityExplodeListener(this).register();
+//        new InventoryOpenListener(this).register();
+//        new PlayerBucketEmptyFillListener(this).register();
+//        new PlayerDeathListener(this).register();
         new PlayerJoinListener(this).register();
-        new PlayerMoveListener(this).register();
-        new PlayerQuitListener(this).register();
-        new TeleportCancelListener(this).register();
-        new UnknownCommandListener(this).register();
-        new WeatherListener(this).register();
-        new FakeInventoriesListener(this).register();
+//        new PlayerMoveListener(this).register();
+//        new PlayerQuitListener(this).register();
+//        new TeleportCancelListener(this).register();
+//        new UnknownCommandListener(this).register();
+//        new WeatherListener(this).register();
+//        new FakeInventoriesListener(this).register();
         // commands
-        registerCommand(new PlayerCommand());
-        registerCommand(new GuildCommand());
-        registerCommand(new ConfigReloadCommand());
-        registerCommand(new TeleportCommand());
-        registerCommand(new GamemodeCommand());
+//        registerCommand(new PlayerCommand());
+//        registerCommand(new GuildCommand());
+//        registerCommand(new ConfigReloadCommand());
+//        registerCommand(new TeleportCommand());
+//        registerCommand(new GamemodeCommand());
         registerCommand(new BanCommand());
         registerCommand(new UnBanCommand());
-        registerCommand(new DeviceCommand());
-        registerCommand(new DropCommand());
-        registerCommand(new RewardCommand());
+//        registerCommand(new DeviceCommand());
+//        registerCommand(new DropCommand());
+//        registerCommand(new RewardCommand());
+//        registerCommand(new TestCommand());
+//        registerCommand(new ClearCommand());
         //discord
         registerJDA();
         //entity
         Entity.registerEntity("Item", OptimizedDroppedItem.class);
         Entity.registerEntity("XpOrb", OptimizedXPOrb.class);
-    }
+//        Entity.registerEntity(Snowball.class.getSimpleName(), Snowball.class);
+//        Entity.registerEntity(Egg.class.getSimpleName(), Egg.class);
+//        Entity.registerEntity(EnderPearl.class.getSimpleName(), EnderPearl.class);
+//        Entity.registerEntity("Arrow", Arrow.class);
+//        BlockEntity.registerBlockEntity("Chest", ChestTile.class);
+//        BlockEntity.registerBlockEntity("Hopper", FixedHopperTile.class);
+//        Entity.registerEntity("PrimedTnt", PrimedTNT.class);
 
+    }
 
     @Override
     public void onDisable() {
         Server.getInstance().getScheduler().cancelAllTasks();
-        for (final Player p : Server.getInstance().getOnlinePlayers().values()) {
-            CombatManager.removeCombat(p);
-        }
+//        for (final Player p : Server.getInstance().getOnlinePlayers().values()) {
+//            CombatManager.removeCombat(p);
+//        }
+        GuildPlugin.query.shutdown();
     }
-
+    public static QueryThread getQuery() {
+        return GuildPlugin.query;
+    }
     public static void registerCommand(final Command command) {
         CommandManager.register(command);
     }

@@ -33,6 +33,12 @@ public class DropInventory extends DoubleChestFakeInventory {
         if(e.getAction().getSlot() == 20){
             new PandoraInventory(p);
         }
+        if(e.getAction().getSlot() == 32){
+            new CobbleXInventory(p);
+        }
+        if(e.getAction().getSlot() == 24){
+            new MagicCaseInventory(p);
+        }
     }
 
     private void refreshGui() {

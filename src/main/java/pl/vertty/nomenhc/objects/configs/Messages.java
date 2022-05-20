@@ -18,9 +18,11 @@ public class Messages {
     public String ban_window,ban_no_reason,user_have_ban,ban_reason,user_nohave_ban,unban_reason;
     public String guildActionBar_terrain,guildRemoveLife,guildRemoveLifeError,have_guild,next_to_spawn,next_to_border,next_to_guild,create_name_error,create_name_istnieje,create_name_bc,guild_no_have,guild_no_lider,guild_delete_code,guild_delete_code_error,guild_vleader_succes_remove,guild_vleader_limit,guild_vleader_succes,guild_officer_succes_remove,guild_officer_limit,guild_officer_succes,guild_onlyleader_vleader,guild_player_offline,guild_invite_back_request,guild_invite,guild_invite_request,guild_no_exists,guild_invite_nohave,guild_invite_accept_bc,guild_leave_error,guild_leave_succes_bc,guild_player_no,guild_kick_succes_bc,guild_onlyleader_vleader_mistrz,guild_sethome_error,guild_sethome_succes,guild_prolong_error,guild_prolong_error1,guild_prolong_succes, guild_large_error,guild_large_error1,guild_large_succes,guild_ally_error1,guild_ally_error2,guild_ally_remove,guild_ally_succes,guild_ally_invite,guild_ally_invite_members_notify,guild_pvp_ally,guild_pvp,guild;
     public String teleport;
-    public String actionbar_append;
+    public String actionbar_append, clear_eq, clear_error;
 
     public Messages() {
+        clear_error = "gracz jest offline kurwa";
+        clear_eq = "Ekwipunek zostal wyczyszczony";
         actionbar_append = " §8:: ";
         teleport = "§6Teleportacja §8(§e {TIME}§8)";
         guildActionBar_terrain = "§fZnajdujesz sie na terenie gildii: §8[§{COLOR}{TAG}§8:: §{COLOR}{DISTANCE}§8]";

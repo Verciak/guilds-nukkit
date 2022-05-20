@@ -44,7 +44,7 @@ public class DropManager {
         JSONArray drops_cx = drop.getJSONObject("drops").getJSONObject("cx").getJSONArray("list");
         for (int i = 0; i < drops_cx.length(); i++) {
             JSONObject o = drops_cx.getJSONObject(i);
-            Item ib = Item.get(o.getInt("id"), 0, 1);
+            Item ib = Item.get(o.getInt("id"), o.getInt("meta"), 1);
             DropManager.drops_cx.add(new CobbleXDrop(
                     o.getInt("id"),
                     o.getString("name"),

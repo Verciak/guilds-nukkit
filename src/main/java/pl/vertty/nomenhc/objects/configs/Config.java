@@ -11,7 +11,7 @@ public class Config {
     private static Config instance;
 
     public String mongoUri,mongoDatabase;
-    public boolean spawn_status,wiadomosci_actionbar;
+    public boolean spawn_status,wiadomosci_actionbar, ENABLE_TNT;
     public int wiadomosci_time,spawnx,spawnz,spawndistance;
     public boolean ANVIL_STATUS,BEACON_STATUS,BREWING_STATUS,CHEST_STATUS,DISPENSER_STATUS,DROPPER_STATUS,ENCHANTING_STATUS,ENDER_CHEST_STATUS,FURNACE_STATUS, HOPPER_STATUS,WORKBENCH_STATUS,HOPPER_MINECART_STATUS,STORAGE_MINECART_STATUS,TRAPPED_CHEST_STATUS;
 
@@ -56,6 +56,8 @@ public class Config {
         guildSpawnDistance = 250;
         guildBorderDistance = 200;
         worldBorder = 5000.0;
+
+        ENABLE_TNT = false;
     }
 
     public static Config getInstance() {

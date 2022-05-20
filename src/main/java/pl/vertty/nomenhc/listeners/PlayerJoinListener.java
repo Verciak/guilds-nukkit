@@ -11,6 +11,7 @@ import pl.vertty.nomenhc.handlers.BanHandler;
 import pl.vertty.nomenhc.handlers.CombatManager;
 import pl.vertty.nomenhc.handlers.DropManager;
 import pl.vertty.nomenhc.helpers.ChatUtil;
+import pl.vertty.nomenhc.helpers.DatabaseHelper;
 import pl.vertty.nomenhc.objects.User;
 import pl.vertty.nomenhc.objects.Ban;
 import pl.vertty.nomenhc.objects.Combat;
@@ -79,13 +80,13 @@ public class PlayerJoinListener implements Listener {
         }
     }
 
-    @EventHandler(priority = EventPriority.LOW)
-    public void onJoin(final PlayerJoinEvent e) {
-        final Player p = e.getPlayer();
-        e.setJoinMessage("");
-        final Combat combat = CombatManager.getCombat(p);
-        if (combat == null) {
-            CombatManager.createCombat(p);
-        }
-    }
+//    @EventHandler(priority = EventPriority.LOW)
+//    public void onJoin(final PlayerJoinEvent e) {
+//        final Player p = e.getPlayer();
+//        e.setJoinMessage("");
+//        final Combat combat = CombatManager.getCombat(p);
+//        if (combat == null) {
+//            CombatManager.createCombat(p);
+//        }
+//    }
 }
